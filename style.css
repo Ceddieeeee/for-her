@@ -1,0 +1,1285 @@
+/* ==================================================
+   GOOGLE FONTS
+================================================== */
+
+@import url(
+    'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Patrick+Hand&display=swap'
+);
+
+
+/* ==================================================
+   VARIABLES
+================================================== */
+
+:root {
+
+    --cream: #f5e5c5;
+
+    --paper: #fffdf7;
+
+    --paper-warm: #fffaf0;
+
+    --brown: #9a5723;
+
+    --dark-brown: #603719;
+
+    --text: #68462e;
+
+    --envelope: #e8c99e;
+
+    --envelope-dark: #d5ae79;
+
+    --envelope-light: #efd6ad;
+
+    --heart: #b94b4b;
+
+}
+
+
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+body {
+
+    background: var(--cream);
+
+    color: var(--text);
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow: hidden;
+
+}
+
+
+/* ==================================================
+   PAPER TEXTURE
+================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1000;
+
+    opacity: 0.15;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(100, 65, 35, 0.07) 0px,
+            rgba(100, 65, 35, 0.07) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+
+}
+
+
+/* ==================================================
+   SECTIONS
+================================================== */
+
+.section {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.65s ease,
+        visibility 0.65s ease;
+
+}
+
+
+.section.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* ==================================================
+   PAPER
+================================================== */
+
+.paper {
+
+    position: relative;
+
+    width: min(900px, 94vw);
+
+    min-height: 650px;
+
+    max-height: 94vh;
+
+    background: var(--paper);
+
+    padding: 60px 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(80, 45, 20, 0.16);
+
+    transform: scale(0.97);
+
+    transition:
+        transform 0.65s ease;
+
+}
+
+
+.section.active .paper {
+
+    transform: scale(1);
+
+}
+
+
+/* ==================================================
+   INNER PAPER BORDER
+================================================== */
+
+.paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid
+        rgba(154, 87, 35, 0.12);
+
+    pointer-events: none;
+
+}
+
+
+/* ==================================================
+   SMALL TEXT
+================================================== */
+
+.small-text {
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 20px;
+
+    color: var(--brown);
+
+    letter-spacing: 1px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* ==================================================
+   TITLE
+================================================== */
+
+h1 {
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size:
+        clamp(48px, 7vw, 82px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    color: var(--brown);
+
+}
+
+
+h1 span {
+
+    color: var(--dark-brown);
+
+}
+
+
+/* ==================================================
+   QUESTION
+================================================== */
+
+.question {
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size:
+        clamp(22px, 3vw, 30px);
+
+    margin-top: 25px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* ==================================================
+   GIF
+================================================== */
+
+.gif-container {
+
+    width: 220px;
+
+    height: 180px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 5px 0 15px;
+
+}
+
+
+.opening-gif {
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+}
+
+
+.second-gif-container {
+
+    width: 230px;
+
+    height: 190px;
+
+}
+
+
+.second-gif {
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+.buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 75px;
+
+}
+
+
+.choice-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    background: var(--brown);
+
+    border-radius: 999px;
+
+    padding: 12px 25px;
+
+    min-width: 80px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 6px 15px rgba(100, 55, 25, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.choice-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(100, 55, 25, 0.25);
+
+}
+
+
+.choice-button:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* ==================================================
+   SECTION 2
+================================================== */
+
+#secondSection {
+
+    background: #f1d8ad;
+
+}
+
+
+/* ==================================================
+   SECTION 3
+================================================== */
+
+#letterSection {
+
+    background: #ead0a5;
+
+}
+
+
+/* ==================================================
+   LETTER PAPER
+================================================== */
+
+.letter-paper {
+
+    padding: 0;
+
+    overflow: hidden;
+
+    display: block;
+
+}
+
+
+/* ==================================================
+   ENVELOPE SCREEN
+================================================== */
+
+.envelope-screen {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 20;
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+}
+
+
+.envelope-screen.hide {
+
+    opacity: 0;
+
+    transform:
+        scale(0.94)
+        translateY(-25px);
+
+    pointer-events: none;
+
+}
+
+
+/* ==================================================
+   ENVELOPE
+================================================== */
+
+.envelope-wrapper {
+
+    width: 380px;
+
+    height: 250px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    perspective: 1000px;
+
+}
+
+
+.envelope {
+
+    position: relative;
+
+    width: 340px;
+
+    height: 215px;
+
+    background: var(--envelope);
+
+    box-shadow:
+        0 18px 35px rgba(90, 50, 20, 0.20);
+
+    transform-style: preserve-3d;
+
+}
+
+
+/* ==================================================
+   LETTER INSIDE ENVELOPE
+================================================== */
+
+.envelope-letter {
+
+    position: absolute;
+
+    left: 30px;
+
+    right: 30px;
+
+    bottom: 15px;
+
+    height: 155px;
+
+    background: var(--paper);
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding-top: 25px;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 19px;
+
+    color: var(--brown);
+
+    box-shadow:
+        0 5px 14px rgba(80, 45, 20, 0.12);
+
+    transition:
+        transform 0.9s ease;
+
+}
+
+
+.envelope.open .envelope-letter {
+
+    transform:
+        translateY(-120px);
+
+}
+
+
+/* ==================================================
+   ENVELOPE FRONT
+================================================== */
+
+.envelope-front {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    background: var(--envelope);
+
+    overflow: hidden;
+
+}
+
+
+.envelope-front::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        170px solid var(--envelope-dark);
+
+    border-top:
+        108px solid transparent;
+
+    border-bottom:
+        108px solid transparent;
+
+}
+
+
+.envelope-front::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-right:
+        170px solid var(--envelope-dark);
+
+    border-top:
+        108px solid transparent;
+
+    border-bottom:
+        108px solid transparent;
+
+}
+
+
+/* ==================================================
+   ENVELOPE FLAP
+================================================== */
+
+.envelope-flap {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        170px solid transparent;
+
+    border-right:
+        170px solid transparent;
+
+    border-top:
+        112px solid var(--envelope-light);
+
+    transform-origin: top center;
+
+    z-index: 6;
+
+    transition:
+        transform 0.8s ease;
+
+}
+
+
+.envelope.open .envelope-flap {
+
+    transform:
+        rotateX(180deg);
+
+}
+
+
+/* ==================================================
+   HEART
+================================================== */
+
+.heart-button {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 70px;
+
+    height: 70px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--heart);
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow:
+        0 8px 20px rgba(120, 45, 45, 0.28);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.5s ease;
+
+}
+
+
+.heart-button span {
+
+    font-size: 31px;
+
+}
+
+
+.heart-button:hover {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.1);
+
+    box-shadow:
+        0 12px 28px rgba(120, 45, 45, 0.35);
+
+}
+
+
+.envelope.open .heart-button {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* ==================================================
+   ENVELOPE INSTRUCTION
+================================================== */
+
+.envelope-instruction {
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 24px;
+
+    color: var(--text);
+
+}
+
+
+/* ==================================================
+   LETTER CONTENT
+================================================== */
+
+.letter-content {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: var(--paper-warm);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translateY(35px);
+
+    z-index: 30;
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s ease;
+
+}
+
+
+.letter-content.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* ==================================================
+   SCROLLABLE LETTER AREA
+================================================== */
+
+.letter-scroll {
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding:
+        55px
+        clamp(28px, 7vw, 90px)
+        70px;
+
+    text-align: left;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(154, 87, 35, 0.45)
+        transparent;
+
+}
+
+
+/* ==================================================
+   SCROLLBAR
+================================================== */
+
+.letter-scroll::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+.letter-scroll::-webkit-scrollbar-track {
+
+    background: transparent;
+
+}
+
+
+.letter-scroll::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(154, 87, 35, 0.35);
+
+    border-radius: 20px;
+
+}
+
+
+.letter-scroll::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(154, 87, 35, 0.55);
+
+}
+
+
+/* ==================================================
+   DECORATION
+================================================== */
+
+.letter-decoration {
+
+    text-align: center;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 23px;
+
+    color:
+        rgba(154, 87, 35, 0.55);
+
+    margin-bottom: 15px;
+
+}
+
+
+/* ==================================================
+   DATE
+================================================== */
+
+.letter-date {
+
+    text-align: center;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 20px;
+
+    color: var(--brown);
+
+    margin-bottom: 12px;
+
+}
+
+
+/* ==================================================
+   LETTER TITLE
+================================================== */
+
+.letter-content h2 {
+
+    text-align: center;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size:
+        clamp(46px, 6vw, 68px);
+
+    font-weight: 400;
+
+    color: var(--brown);
+
+    line-height: 1;
+
+    margin-bottom: 50px;
+
+}
+
+
+.letter-content h2::after {
+
+    content: "♡";
+
+    display: block;
+
+    font-size: 20px;
+
+    margin-top: 15px;
+
+    color:
+        rgba(154, 87, 35, 0.55);
+
+}
+
+
+/* ==================================================
+   LETTER TEXT
+================================================== */
+
+.letter-text {
+
+    width: min(720px, 100%);
+
+    margin:
+        0 auto;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size:
+        clamp(20px, 2vw, 25px);
+
+    line-height: 1.7;
+
+    color: var(--text);
+
+}
+
+
+.letter-text p {
+
+    margin-bottom: 28px;
+
+}
+
+
+/* ==================================================
+   SPECIAL EMPHASIS
+================================================== */
+
+.letter-text p:nth-child(5),
+.letter-text p:nth-child(14),
+.letter-text p:nth-child(20),
+.letter-text p:nth-child(27),
+.letter-text p:nth-child(42),
+.letter-text p:nth-child(50),
+.letter-text p:nth-child(59) {
+
+    color: var(--brown);
+
+}
+
+
+/* ==================================================
+   SIGNATURE
+================================================== */
+
+.letter-signature {
+
+    text-align: center;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 30px;
+
+    color: var(--brown);
+
+    margin-top: 20px;
+
+}
+
+
+/* ==================================================
+   CONTINUE
+================================================== */
+
+.continue-button {
+
+    display: block;
+
+    margin:
+        40px auto 55px;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding:
+        14px 32px;
+
+    border-radius: 999px;
+
+    color: white;
+
+    background: var(--brown);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(100, 55, 25, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.continue-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 11px 25px
+        rgba(100, 55, 25, 0.28);
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .section {
+
+        padding: 10px 7px;
+
+    }
+
+
+    .paper {
+
+        width: 96vw;
+
+        min-height: 620px;
+
+        max-height: 96vh;
+
+    }
+
+
+    h1 {
+
+        font-size: 52px;
+
+    }
+
+
+    .question {
+
+        font-size: 22px;
+
+    }
+
+
+    .buttons {
+
+        gap: 35px;
+
+    }
+
+
+    .gif-container {
+
+        width: 190px;
+
+        height: 160px;
+
+    }
+
+
+    .second-gif-container {
+
+        width: 200px;
+
+        height: 165px;
+
+    }
+
+
+    /* ENVELOPE */
+
+    .envelope-wrapper {
+
+        width: 300px;
+
+        height: 205px;
+
+    }
+
+
+    .envelope {
+
+        width: 280px;
+
+        height: 180px;
+
+    }
+
+
+    .envelope-front::before {
+
+        border-left-width: 140px;
+
+        border-top-width: 90px;
+
+        border-bottom-width: 90px;
+
+    }
+
+
+    .envelope-front::after {
+
+        border-right-width: 140px;
+
+        border-top-width: 90px;
+
+        border-bottom-width: 90px;
+
+    }
+
+
+    .envelope-flap {
+
+        border-left-width: 140px;
+
+        border-right-width: 140px;
+
+        border-top-width: 95px;
+
+    }
+
+
+    .envelope-letter {
+
+        left: 25px;
+
+        right: 25px;
+
+        height: 135px;
+
+    }
+
+
+    .heart-button {
+
+        width: 60px;
+
+        height: 60px;
+
+    }
+
+
+    .heart-button span {
+
+        font-size: 27px;
+
+    }
+
+
+    .envelope-instruction {
+
+        font-size: 21px;
+
+    }
+
+
+    /* LETTER */
+
+    .letter-scroll {
+
+        padding:
+            40px 23px 55px;
+
+    }
+
+
+    .letter-content h2 {
+
+        font-size: 48px;
+
+        margin-bottom: 35px;
+
+    }
+
+
+    .letter-text {
+
+        font-size: 20px;
+
+        line-height: 1.65;
+
+    }
+
+
+    .letter-text p {
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .continue-button {
+
+        margin-bottom: 35px;
+
+    }
+
+}
