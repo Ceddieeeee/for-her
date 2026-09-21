@@ -1,68 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>For My Love ♡</title>
 
-    <title>I'm Sorry, My Love ♡</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
+    <!-- ========================================================= -->
+    <!-- SECTION 1 — OPENING                                      -->
+    <!-- ========================================================= -->
 
-    <!-- ==================================================
-         SECTION 1 — OPENING
-    ================================================== -->
+    <section id="openingSection" class="section active">
 
-    <section id="opening" class="section active">
+        <div class="opening-content">
 
-        <div class="paper">
-
-            <div class="small-text">
+            <p class="small-text">
                 a little something for you
-            </div>
+            </p>
 
             <h1>
-                I'M SORRY,
-                <br>
-                <span>MY LOVE.</span>
+                I'M SORRY,<br>
+                MY LOVE.
             </h1>
 
             <p class="question">
                 WILL YOU PLEASE FORGIVE ME?
             </p>
 
-            <div class="gif-container">
+            <img
+                src="images/opening.gif"
+                class="main-gif"
+                alt="Cute animation"
+            >
 
-                <img
-                    src="images/opening.gif"
-                    alt="Cute animation"
-                    class="opening-gif"
-                >
+            <div class="button-group">
 
-            </div>
-
-            <div class="buttons">
-
-                <button
-                    id="yesButton"
-                    class="choice-button"
-                >
+                <button id="yesOpening" class="main-button yes-button">
                     YES ♡
                 </button>
 
-                <button
-                    id="noButton"
-                    class="choice-button"
-                >
+                <button id="noOpening" class="main-button no-opening-button">
                     NO
                 </button>
 
@@ -73,43 +60,34 @@
     </section>
 
 
+    <!-- ========================================================= -->
+    <!-- SECTION 2 — I'LL WAIT                                    -->
+    <!-- ========================================================= -->
 
-    <!-- ==================================================
-         SECTION 2 — NO RESPONSE
-    ================================================== -->
+    <section id="waitSection" class="section">
 
-    <section id="secondSection" class="section">
+        <div class="opening-content">
 
-        <div class="paper">
-
-            <div class="small-text">
+            <p class="small-text">
                 pleaseeee...
-            </div>
+            </p>
 
             <h1>
-                I PROMISE,
-                <br>
-                <span>MY LOVE.</span>
+                I PROMISE,<br>
+                MY WIFEYY.
             </h1>
 
             <p class="question">
                 I'LL MAKE IT UP TO YOU. ♡
             </p>
 
-            <div class="gif-container second-gif-container">
-
-                <img
-                    src="images/second.gif"
-                    alt="Cute animation"
-                    class="second-gif"
-                >
-
-            </div>
-
-            <button
-                id="backFromSecond"
-                class="choice-button"
+            <img
+                src="images/second.gif"
+                class="main-gif"
+                alt="Cute animation"
             >
+
+            <button id="backButton" class="main-button back-button">
                 ← ALRIGHT
             </button>
 
@@ -118,119 +96,71 @@
     </section>
 
 
-
-    <!-- ==================================================
-         SECTION 3 — LETTER
-    ================================================== -->
+    <!-- ========================================================= -->
+    <!-- SECTION 3 — LETTER                                       -->
+    <!-- ========================================================= -->
 
     <section id="letterSection" class="section">
 
-        <div class="paper letter-paper">
+        <div class="letter-paper">
 
+            <!-- ENVELOPE SCREEN -->
 
-            <!-- ==================================================
-                 ENVELOPE INTRO
-            ================================================== -->
+            <div id="envelopeScreen" class="envelope-screen">
 
-            <div
-                id="envelopeScreen"
-                class="envelope-screen"
-            >
-
-                <div class="envelope-intro">
-
-                    <div class="small-text">
-                        something from my heart
-                    </div>
-
-                </div>
-
+                <p class="letter-small-title">
+                    something from my heart
+                </p>
 
                 <div class="envelope-wrapper">
 
-                    <div
-                        id="envelope"
-                        class="envelope"
-                    >
-
-
-                        <!-- LETTER INSIDE ENVELOPE -->
+                    <div id="envelope" class="envelope">
 
                         <div class="envelope-letter">
-
-                            <span>
-                                for you ♡
-                            </span>
-
                         </div>
 
+                        <div class="envelope-front">
+                        </div>
 
-                        <!-- ENVELOPE FRONT -->
-
-                        <div class="envelope-front"></div>
-
-
-                        <!-- ENVELOPE FLAP -->
-
-                        <div class="envelope-flap"></div>
-
-
-                        <!-- HEART BUTTON -->
+                        <div class="envelope-flap">
+                        </div>
 
                         <button
                             id="heartButton"
                             class="heart-button"
                             aria-label="Open letter"
                         >
-
-                            <span>♥</span>
-
+                            ♡
                         </button>
 
                     </div>
 
+                    <p class="envelope-instruction">
+                        click the heart to read my letter ♡
+                    </p>
+
                 </div>
-
-
-                <p class="envelope-instruction">
-                    click the heart to read my letter ♡
-                </p>
 
             </div>
 
 
+            <!-- LETTER CONTENT -->
 
-            <!-- ==================================================
-                 ACTUAL LETTER
-            ================================================== -->
-
-            <div
-                id="letterContent"
-                class="letter-content"
-            >
+            <div id="letterContent" class="letter-content">
 
                 <div class="letter-scroll">
 
-
                     <div class="letter-decoration">
-                        ♡ · · · ♡
+                        ♡
                     </div>
 
-
-                    <div class="letter-date">
-                        for My Wifeyyy,
-                    </div>
-
+                    <p class="letter-date">
+                        a letter for you
+                    </p>
 
                     <h2>
-                        I'm Sorry
+                        To My Wifeyy
                     </h2>
-
-
-                    <!-- ==================================================
-                         YOUR ORIGINAL LETTER
-                         NOTHING HAS BEEN CHANGED
-                    ================================================== -->
 
                     <div class="letter-text">
 
@@ -247,7 +177,7 @@
                         </p>
 
                         <p>
-                            Before you came into my life, I was so used to keeping things to myself. I was comfortable being independent, keeping my weakness hidde, my stories hidden, and pretending that I didn't need anyone to understand me.
+                            Before you came into my life, I was so used to keeping things to myself. I was comfortable being independent, keeping my weakness hidden, my stories hidden, and pretending that I didn't need anyone to understand me.
                         </p>
 
                         <p>
@@ -474,28 +404,16 @@
                             Just click the button to move on.
                         </p>
 
-
-                    <!-- ==================================================
-                         END OF ORIGINAL LETTER
-                    ================================================== -->
-
-
-                    <div class="letter-signature">
-
-                        <p>
-                            ♡
-                        </p>
-
                     </div>
 
+                    <div class="letter-signature">
+                        <p>With all my love,</p>
+                        <strong>Ceddieeeeee ♡</strong>
+                    </div>
 
-                    <button
-                        id="continueButton"
-                        class="continue-button"
-                    >
-                        CONTINUE ♡
+                    <button id="continueButton" class="main-button continue-button">
+                        CONTINUE →
                     </button>
-
 
                 </div>
 
@@ -506,8 +424,170 @@
     </section>
 
 
+    <!-- ========================================================= -->
+    <!-- SECTION 4 — PROPOSAL                                     -->
+    <!-- ========================================================= -->
+
+    <section id="proposalSection" class="section">
+
+        <div class="proposal-content">
+
+            <!-- ARROW / ENVELOPE STAGE -->
+
+            <div id="arrowStage" class="arrow-stage">
+
+                <p class="small-text">
+                    one more thing...
+                </p>
+
+                <h1 class="proposal-intro-title">
+                    SHOOT THE ARROW ♡
+                </h1>
+
+                <p class="proposal-instruction">
+                    aim for the heart
+                </p>
+
+                <div id="shootArea" class="shoot-area">
+
+                    <div id="proposalEnvelope" class="proposal-envelope">
+
+                        <div class="proposal-envelope-back">
+                        </div>
+
+                        <div class="proposal-envelope-paper">
+                        </div>
+
+                        <div class="proposal-envelope-front">
+                        </div>
+
+                        <div class="proposal-envelope-flap">
+                        </div>
+
+                        <div id="targetHeart" class="target-heart">
+                            ♥
+                        </div>
+
+                    </div>
+
+                    <!-- Bow below envelope -->
+
+                    <div class="bow">
+
+                        <div class="bow-loop bow-left"></div>
+
+                        <div class="bow-center"></div>
+
+                        <div class="bow-loop bow-right"></div>
+
+                        <div class="bow-tail bow-tail-left"></div>
+
+                        <div class="bow-tail bow-tail-right"></div>
+
+                    </div>
+
+
+                    <!-- Arrow -->
+
+                    <div
+                        id="arrow"
+                        class="arrow"
+                        title="Drag me toward the heart"
+                    >
+                        <span class="arrow-shaft"></span>
+                        <span class="arrow-head">➤</span>
+                        <span class="arrow-feather">◆</span>
+                    </div>
+
+                </div>
+
+                <p class="drag-text">
+                    drag the arrow into the heart
+                </p>
+
+            </div>
+
+
+            <!-- QUESTION STAGE -->
+
+            <div id="questionStage" class="question-stage">
+
+                <p class="small-text">
+                    one last question...
+                </p>
+
+                <h2>
+                    Will you be my girlfriend?
+                </h2>
+
+                <div class="bouquet">
+                    💐
+                </div>
+
+                <div class="proposal-area">
+
+                    <button
+                        id="proposalYes"
+                        class="proposal-button proposal-yes"
+                    >
+                        YES ♡
+                    </button>
+
+                    <button
+                        id="proposalNo"
+                        class="proposal-button proposal-no"
+                    >
+                        NO
+                    </button>
+
+                </div>
+
+                <p id="noMessage" class="no-message">
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================= -->
+    <!-- SECTION 5 — HAPPY ENDING                                -->
+    <!-- ========================================================= -->
+
+    <section id="finalSection" class="section">
+
+        <div class="final-content">
+
+            <p class="final-title">
+                Yayy! I Love You
+                <span>♡</span>
+            </p>
+
+            <div class="final-heart">
+                ♥
+            </div>
+
+            <div class="final-flowers">
+                💐
+            </div>
+
+            <p class="final-message">
+                I'm really happy that you accepted me
+            </p>
+
+            <div class="final-love">
+                I LOVE YOU
+                <span>♡</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
     <script src="script.js"></script>
 
 </body>
-
 </html>
