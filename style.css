@@ -1,133 +1,50 @@
-/* ==================================================
-   GOOGLE FONTS
-================================================== */
-
-@import url(
-    'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Patrick+Hand&display=swap'
-);
-
-
-/* ==================================================
-   VARIABLES
-================================================== */
-
-:root {
-
-    --cream: #f5e5c5;
-
-    --paper: #fffdf7;
-
-    --paper-warm: #fffaf0;
-
-    --brown: #9a5723;
-
-    --dark-brown: #603719;
-
-    --text: #68462e;
-
-    --envelope: #e8c99e;
-
-    --envelope-dark: #d5ae79;
-
-    --envelope-light: #efd6ad;
-
-    --heart: #b94b4b;
-
-}
-
-
-/* ==================================================
-   RESET
-================================================== */
+/* ========================================================= */
+/* GENERAL                                                   */
+/* ========================================================= */
 
 * {
-
     box-sizing: border-box;
-
     margin: 0;
-
     padding: 0;
-
 }
-
 
 html,
 body {
-
     width: 100%;
-
     height: 100%;
-
 }
-
 
 body {
-
-    background: var(--cream);
-
-    color: var(--text);
-
-    font-family: "DM Sans", sans-serif;
-
     overflow: hidden;
 
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.7), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(232,199,163,0.3), transparent 40%),
+        #f6ead8;
+
+    color: #49362c;
+
+    font-family: "DM Sans", sans-serif;
 }
 
 
-/* ==================================================
-   PAPER TEXTURE
-================================================== */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 1000;
-
-    opacity: 0.15;
-
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            rgba(100, 65, 35, 0.07) 0px,
-            rgba(100, 65, 35, 0.07) 1px,
-            transparent 1px,
-            transparent 5px
-        );
-
-}
-
-
-/* ==================================================
-   SECTIONS
-================================================== */
+/* ========================================================= */
+/* SECTIONS                                                   */
+/* ========================================================= */
 
 .section {
-
     position: fixed;
 
     inset: 0;
 
     width: 100%;
-
-    height: 100vh;
+    height: 100%;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
-    padding: 25px 20px;
-
     opacity: 0;
-
     visibility: hidden;
 
     pointer-events: none;
@@ -135,316 +52,213 @@ body::before {
     transition:
         opacity 0.65s ease,
         visibility 0.65s ease;
-
 }
-
 
 .section.active {
-
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
-
 }
 
 
-/* ==================================================
-   PAPER
-================================================== */
+/* ========================================================= */
+/* OPENING / WAIT                                            */
+/* ========================================================= */
 
-.paper {
-
-    position: relative;
-
-    width: min(900px, 94vw);
-
-    min-height: 650px;
-
-    max-height: 94vh;
-
-    background: var(--paper);
-
-    padding: 60px 40px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
+.opening-content {
+    width: min(90%, 650px);
 
     text-align: center;
 
-    box-shadow:
-        0 20px 50px rgba(80, 45, 20, 0.16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    transform: scale(0.97);
+    animation: contentAppear 0.8s ease;
+}
+
+@keyframes contentAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.small-text {
+    font-family: "Patrick Hand", cursive;
+
+    font-size: clamp(20px, 3vw, 27px);
+
+    color: #9d7965;
+
+    margin-bottom: 8px;
+}
+
+.opening-content h1 {
+    font-family: "Patrick Hand", cursive;
+
+    font-size: clamp(52px, 9vw, 100px);
+
+    line-height: 0.86;
+
+    color: #583d32;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+}
+
+.question {
+    font-size: clamp(14px, 2vw, 18px);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #765747;
+
+    margin-bottom: 22px;
+}
+
+.main-gif {
+    width: min(230px, 55vw);
+
+    max-height: 230px;
+
+    object-fit: contain;
+
+    margin-bottom: 28px;
+
+    border-radius: 20px;
+}
+
+
+/* ========================================================= */
+/* BUTTONS                                                    */
+/* ========================================================= */
+
+.button-group {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.main-button {
+    border: none;
+
+    padding: 13px 30px;
+
+    border-radius: 999px;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
 
     transition:
-        transform 0.65s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
 
+.main-button:hover {
+    transform: translateY(-3px);
+}
+
+.yes-button,
+.continue-button {
+    background: #b86d67;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(184,109,103,0.25);
+}
+
+.yes-button:hover,
+.continue-button:hover {
+    box-shadow:
+        0 12px 25px rgba(184,109,103,0.35);
+}
+
+.no-opening-button,
+.back-button {
+    background: rgba(255,255,255,0.65);
+
+    color: #795c4b;
+
+    border: 1px solid rgba(121,92,75,0.15);
+}
+
+.back-button {
+    margin-top: 5px;
 }
 
 
-.section.active .paper {
+/* ========================================================= */
+/* LETTER PAPER                                               */
+/* ========================================================= */
 
-    transform: scale(1);
+.letter-paper {
+    position: relative;
 
+    width: min(94vw, 950px);
+    height: min(92vh, 900px);
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.55),
+            rgba(255,255,255,0.55)
+        ),
+        #fffaf0;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(91,65,48,0.18);
+
+    border: 1px solid rgba(132,96,70,0.15);
 }
 
-
-/* ==================================================
-   INNER PAPER BORDER
-================================================== */
-
-.paper::before {
-
+.letter-paper::before {
     content: "";
 
     position: absolute;
 
     inset: 12px;
 
-    border: 1px solid
-        rgba(154, 87, 35, 0.12);
+    border: 1px solid rgba(176,132,99,0.18);
+
+    border-radius: 15px;
 
     pointer-events: none;
 
+    z-index: 10;
 }
 
 
-/* ==================================================
-   SMALL TEXT
-================================================== */
-
-.small-text {
-
-    font-family: "Patrick Hand", cursive;
-
-    font-size: 20px;
-
-    color: var(--brown);
-
-    letter-spacing: 1px;
-
-    margin-bottom: 18px;
-
-}
-
-
-/* ==================================================
-   TITLE
-================================================== */
-
-h1 {
-
-    font-family: "Patrick Hand", cursive;
-
-    font-size:
-        clamp(48px, 7vw, 82px);
-
-    font-weight: 400;
-
-    line-height: 0.9;
-
-    color: var(--brown);
-
-}
-
-
-h1 span {
-
-    color: var(--dark-brown);
-
-}
-
-
-/* ==================================================
-   QUESTION
-================================================== */
-
-.question {
-
-    font-family: "Patrick Hand", cursive;
-
-    font-size:
-        clamp(22px, 3vw, 30px);
-
-    margin-top: 25px;
-
-    margin-bottom: 15px;
-
-}
-
-
-/* ==================================================
-   GIF
-================================================== */
-
-.gif-container {
-
-    width: 220px;
-
-    height: 180px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    margin: 5px 0 15px;
-
-}
-
-
-.opening-gif {
-
-    max-width: 100%;
-
-    max-height: 100%;
-
-    object-fit: contain;
-
-    display: block;
-
-}
-
-
-.second-gif-container {
-
-    width: 230px;
-
-    height: 190px;
-
-}
-
-
-.second-gif {
-
-    max-width: 100%;
-
-    max-height: 100%;
-
-    object-fit: contain;
-
-}
-
-
-/* ==================================================
-   BUTTONS
-================================================== */
-
-.buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 75px;
-
-}
-
-
-.choice-button {
-
-    border: none;
-
-    cursor: pointer;
-
-    color: white;
-
-    background: var(--brown);
-
-    border-radius: 999px;
-
-    padding: 12px 25px;
-
-    min-width: 80px;
-
-    font-family: "DM Sans", sans-serif;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-
-    box-shadow:
-        0 6px 15px rgba(100, 55, 25, 0.2);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
-}
-
-
-.choice-button:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 20px rgba(100, 55, 25, 0.25);
-
-}
-
-
-.choice-button:active {
-
-    transform: translateY(0);
-
-}
-
-
-/* ==================================================
-   SECTION 2
-================================================== */
-
-#secondSection {
-
-    background: #f1d8ad;
-
-}
-
-
-/* ==================================================
-   SECTION 3
-================================================== */
-
-#letterSection {
-
-    background: #ead0a5;
-
-}
-
-
-/* ==================================================
-   LETTER PAPER
-================================================== */
-
-.letter-paper {
-
-    padding: 0;
-
-    overflow: hidden;
-
-    display: block;
-
-}
-
-
-/* ==================================================
-   ENVELOPE SCREEN
-================================================== */
+/* ========================================================= */
+/* ENVELOPE SCREEN                                            */
+/* ========================================================= */
 
 .envelope-screen {
-
     position: absolute;
 
     inset: 0;
@@ -453,342 +267,759 @@ h1 span {
 
     flex-direction: column;
 
-    justify-content: center;
-
     align-items: center;
+    justify-content: center;
 
     text-align: center;
 
-    z-index: 20;
-
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-
+        opacity 0.6s ease,
+        visibility 0.6s ease;
 }
 
-
-.envelope-screen.hide {
-
+.envelope-screen.hidden {
     opacity: 0;
-
-    transform:
-        scale(0.94)
-        translateY(-25px);
-
+    visibility: hidden;
     pointer-events: none;
-
 }
 
-
-/* ==================================================
-   ENVELOPE
-================================================== */
-
-.envelope-wrapper {
-
-    width: 380px;
-
-    height: 250px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    margin-bottom: 20px;
-
-    perspective: 1000px;
-
-}
-
-
-.envelope {
-
-    position: relative;
-
-    width: 340px;
-
-    height: 215px;
-
-    background: var(--envelope);
-
-    box-shadow:
-        0 18px 35px rgba(90, 50, 20, 0.20);
-
-    transform-style: preserve-3d;
-
-}
-
-
-/* ==================================================
-   LETTER INSIDE ENVELOPE
-================================================== */
-
-.envelope-letter {
-
-    position: absolute;
-
-    left: 30px;
-
-    right: 30px;
-
-    bottom: 15px;
-
-    height: 155px;
-
-    background: var(--paper);
-
-    z-index: 2;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: flex-start;
-
-    padding-top: 25px;
-
+.letter-small-title {
     font-family: "Patrick Hand", cursive;
 
-    font-size: 19px;
+    font-size: 25px;
 
-    color: var(--brown);
+    color: #9d7965;
 
-    box-shadow:
-        0 5px 14px rgba(80, 45, 20, 0.12);
-
-    transition:
-        transform 0.9s ease;
-
+    margin-bottom: 30px;
 }
 
+.envelope-wrapper {
+    display: flex;
 
-.envelope.open .envelope-letter {
+    flex-direction: column;
 
-    transform:
-        translateY(-120px);
-
+    align-items: center;
 }
 
+.envelope {
+    position: relative;
 
-/* ==================================================
-   ENVELOPE FRONT
-================================================== */
+    width: min(430px, 75vw);
+
+    aspect-ratio: 1.5 / 1;
+
+    perspective: 1000px;
+}
+
+.envelope-letter {
+    position: absolute;
+
+    left: 8%;
+    bottom: 8%;
+
+    width: 84%;
+    height: 75%;
+
+    background: #fffdf7;
+
+    border-radius: 4px;
+
+    box-shadow: 0 3px 12px rgba(80,55,40,0.1);
+
+    z-index: 1;
+}
 
 .envelope-front {
-
     position: absolute;
 
     inset: 0;
 
+    background: #e7bda4;
+
+    clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    border-radius: 5px;
+
     z-index: 3;
-
-    background: var(--envelope);
-
-    overflow: hidden;
-
 }
-
-
-.envelope-front::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: 0;
-
-    width: 0;
-
-    height: 0;
-
-    border-left:
-        170px solid var(--envelope-dark);
-
-    border-top:
-        108px solid transparent;
-
-    border-bottom:
-        108px solid transparent;
-
-}
-
-
-.envelope-front::after {
-
-    content: "";
-
-    position: absolute;
-
-    right: 0;
-
-    bottom: 0;
-
-    width: 0;
-
-    height: 0;
-
-    border-right:
-        170px solid var(--envelope-dark);
-
-    border-top:
-        108px solid transparent;
-
-    border-bottom:
-        108px solid transparent;
-
-}
-
-
-/* ==================================================
-   ENVELOPE FLAP
-================================================== */
 
 .envelope-flap {
-
     position: absolute;
 
     top: 0;
-
     left: 0;
 
-    width: 0;
+    width: 100%;
+    height: 60%;
 
-    height: 0;
+    background: #f0cdb7;
 
-    border-left:
-        170px solid transparent;
-
-    border-right:
-        170px solid transparent;
-
-    border-top:
-        112px solid var(--envelope-light);
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
 
     transform-origin: top center;
 
-    z-index: 6;
-
     transition:
-        transform 0.8s ease;
+        transform 0.8s cubic-bezier(.4,.1,.2,1);
 
+    z-index: 5;
 }
-
 
 .envelope.open .envelope-flap {
+    transform: rotateX(180deg);
 
-    transform:
-        rotateX(180deg);
-
+    z-index: 1;
 }
 
-
-/* ==================================================
-   HEART
-================================================== */
-
 .heart-button {
-
     position: absolute;
 
     left: 50%;
+    top: 52%;
 
-    top: 50%;
+    transform: translate(-50%, -50%);
 
-    transform:
-        translate(-50%, -50%);
-
-    width: 70px;
-
-    height: 70px;
+    width: 75px;
+    height: 75px;
 
     border: none;
 
     border-radius: 50%;
 
-    background: var(--heart);
+    background: #b86d67;
 
     color: white;
+
+    font-size: 42px;
+
+    font-family: "Arial", sans-serif;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     cursor: pointer;
 
     z-index: 10;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
     box-shadow:
-        0 8px 20px rgba(120, 45, 45, 0.28);
+        0 8px 20px rgba(184,109,103,0.28);
 
     transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease,
-        opacity 0.5s ease;
-
+        box-shadow 0.25s ease;
 }
-
-
-.heart-button span {
-
-    font-size: 31px;
-
-}
-
 
 .heart-button:hover {
-
-    transform:
-        translate(-50%, -50%)
-        scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1);
 
     box-shadow:
-        0 12px 28px rgba(120, 45, 45, 0.35);
-
+        0 12px 25px rgba(184,109,103,0.4);
 }
 
-
 .envelope.open .heart-button {
-
     opacity: 0;
 
     pointer-events: none;
+}
 
+.envelope-instruction {
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 22px;
+
+    color: #96725f;
+
+    margin-top: 25px;
 }
 
 
-/* ==================================================
-   ENVELOPE INSTRUCTION
-================================================== */
+/* ========================================================= */
+/* LETTER CONTENT                                             */
+/* ========================================================= */
 
-.envelope-instruction {
+.letter-content {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.letter-content.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.letter-scroll {
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding:
+        55px
+        clamp(28px, 7vw, 90px)
+        70px;
+}
+
+.letter-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.letter-scroll::-webkit-scrollbar-thumb {
+    background: #d7b39a;
+
+    border-radius: 999px;
+}
+
+.letter-decoration {
+    text-align: center;
+
+    font-size: 32px;
+
+    color: #b86d67;
+
+    margin-bottom: 10px;
+}
+
+.letter-date {
+    text-align: center;
+
+    font-family: "Patrick Hand", cursive;
+
+    color: #a17c67;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+.letter-scroll h2 {
+    text-align: center;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: clamp(40px, 6vw, 62px);
+
+    color: #583d32;
+
+    margin-bottom: 40px;
+}
+
+.letter-text {
+    max-width: 750px;
+
+    margin: 0 auto;
+}
+
+.letter-text p {
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    color: #59473d;
+
+    margin-bottom: 23px;
+}
+
+.letter-signature {
+    max-width: 750px;
+
+    margin: 45px auto 30px;
+
+    text-align: right;
 
     font-family: "Patrick Hand", cursive;
 
     font-size: 24px;
 
-    color: var(--text);
+    color: #765747;
+}
 
+.letter-signature strong {
+    font-size: 30px;
+
+    color: #9f5d59;
+}
+
+.continue-button {
+    display: block;
+
+    margin: 20px auto 20px;
 }
 
 
-/* ==================================================
-   LETTER CONTENT
-================================================== */
+/* ========================================================= */
+/* SECTION 4                                                 */
+/* ========================================================= */
 
-.letter-content {
+.proposal-content {
+    width: 100%;
+    height: 100%;
 
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ========================================================= */
+/* ARROW STAGE                                                */
+/* ========================================================= */
+
+.arrow-stage {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+.arrow-stage.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.proposal-intro-title {
+    font-family: "Patrick Hand", cursive;
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    color: #583d32;
+
+    line-height: 1;
+
+    margin-bottom: 5px;
+}
+
+.proposal-instruction {
+    font-family: "Patrick Hand", cursive;
+
+    color: #9d7965;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.shoot-area {
+    position: relative;
+
+    width: min(750px, 90vw);
+
+    height: min(420px, 48vh);
+
+    min-height: 330px;
+}
+
+
+/* ========================================================= */
+/* PROPOSAL ENVELOPE                                         */
+/* ========================================================= */
+
+.proposal-envelope {
+    position: absolute;
+
+    width: min(400px, 60vw);
+
+    aspect-ratio: 1.5 / 1;
+
+    left: 50%;
+    top: 42%;
+
+    transform: translate(-50%, -50%);
+
+    filter: drop-shadow(
+        0 18px 25px rgba(91,65,48,0.18)
+    );
+}
+
+.proposal-envelope-back {
     position: absolute;
 
     inset: 0;
 
-    background: var(--paper-warm);
+    background: #e8bfa8;
+
+    border-radius: 7px;
+
+    z-index: 1;
+}
+
+.proposal-envelope-paper {
+    position: absolute;
+
+    width: 78%;
+    height: 75%;
+
+    left: 11%;
+    bottom: 8%;
+
+    background: #fffdf7;
+
+    border-radius: 4px;
+
+    z-index: 2;
+}
+
+.proposal-envelope-front {
+    position: absolute;
+
+    inset: 0;
+
+    background: #dcae94;
+
+    clip-path: polygon(
+        0 0,
+        50% 56%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    border-radius: 7px;
+
+    z-index: 5;
+}
+
+.proposal-envelope-flap {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 61%;
+
+    background: #efcdb8;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin: top center;
+
+    transition:
+        transform 1s cubic-bezier(.4,.1,.2,1);
+
+    z-index: 7;
+}
+
+.proposal-envelope.open .proposal-envelope-flap {
+    transform: rotateX(180deg);
+
+    z-index: 2;
+}
+
+
+/* ========================================================= */
+/* TARGET HEART                                               */
+/* ========================================================= */
+
+.target-heart {
+    position: absolute;
+
+    left: 50%;
+    top: 56%;
+
+    transform: translate(-50%, -50%);
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #b65e61;
+
+    font-size: 47px;
+
+    z-index: 10;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+.target-heart.hit {
+    animation: heartHit 0.6s ease;
+}
+
+@keyframes heartHit {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) scale(1.35);
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* ========================================================= */
+/* BOW                                                        */
+/* ========================================================= */
+
+.bow {
+    position: absolute;
+
+    left: 50%;
+
+    top: calc(42% + min(145px, 18vw));
+
+    transform: translateX(-50%);
+
+    width: 150px;
+
+    height: 80px;
+
+    z-index: 15;
+}
+
+.bow-loop {
+    position: absolute;
+
+    width: 65px;
+    height: 48px;
+
+    top: 8px;
+
+    background: #b86d67;
+
+    border: 3px solid #9f5d59;
+
+    border-radius: 70% 40% 70% 40%;
+}
+
+.bow-left {
+    left: 8px;
+
+    transform: rotate(22deg);
+}
+
+.bow-right {
+    right: 8px;
+
+    transform: rotate(-22deg);
+}
+
+.bow-center {
+    position: absolute;
+
+    left: 50%;
+    top: 18px;
+
+    transform: translateX(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    background: #9f5d59;
+
+    border-radius: 50%;
+
+    z-index: 4;
+}
+
+.bow-tail {
+    position: absolute;
+
+    top: 35px;
+
+    width: 35px;
+    height: 48px;
+
+    background: #b86d67;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        70% 100%,
+        50% 70%,
+        30% 100%
+    );
+
+    z-index: 1;
+}
+
+.bow-tail-left {
+    left: 39px;
+
+    transform: rotate(14deg);
+}
+
+.bow-tail-right {
+    right: 39px;
+
+    transform: rotate(-14deg);
+}
+
+
+/* ========================================================= */
+/* ARROW                                                       */
+/* ========================================================= */
+
+.arrow {
+    position: absolute;
+
+    left: 6%;
+
+    top: 55%;
+
+    width: 190px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    user-select: none;
+
+    z-index: 30;
+
+    transform: rotate(-8deg);
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.3s ease;
+}
+
+.arrow:active {
+    cursor: grabbing;
+}
+
+.arrow-shaft {
+    position: absolute;
+
+    left: 15px;
+
+    right: 25px;
+
+    height: 7px;
+
+    background: #765747;
+
+    border-radius: 999px;
+}
+
+.arrow-head {
+    position: absolute;
+
+    right: 0;
+
+    font-size: 45px;
+
+    line-height: 1;
+
+    color: #9f5d59;
+
+    transform: translateY(-2px);
+}
+
+.arrow-feather {
+    position: absolute;
+
+    left: 0;
+
+    font-size: 27px;
+
+    color: #b86d67;
+
+    transform: rotate(45deg);
+}
+
+.arrow.hit {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.drag-text {
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 20px;
+
+    color: #9d7965;
+}
+
+
+/* ========================================================= */
+/* QUESTION STAGE                                             */
+/* ========================================================= */
+
+.question-stage {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
 
     opacity: 0;
 
@@ -796,490 +1027,376 @@ h1 span {
 
     pointer-events: none;
 
-    transform:
-        translateY(35px);
-
-    z-index: 30;
+    transform: translateY(20px);
 
     transition:
         opacity 0.7s ease,
-        transform 0.7s ease,
-        visibility 0.7s ease;
-
+        visibility 0.7s ease,
+        transform 0.7s ease;
 }
 
-
-.letter-content.open {
-
+.question-stage.visible {
     opacity: 1;
 
     visibility: visible;
 
     pointer-events: auto;
 
-    transform:
-        translateY(0);
-
+    transform: translateY(0);
 }
 
-
-/* ==================================================
-   SCROLLABLE LETTER AREA
-================================================== */
-
-.letter-scroll {
-
-    width: 100%;
-
-    height: 100%;
-
-    overflow-y: auto;
-
-    overflow-x: hidden;
-
-    padding:
-        55px
-        clamp(28px, 7vw, 90px)
-        70px;
-
-    text-align: left;
-
-    scroll-behavior: smooth;
-
-    scrollbar-width: thin;
-
-    scrollbar-color:
-        rgba(154, 87, 35, 0.45)
-        transparent;
-
-}
-
-
-/* ==================================================
-   SCROLLBAR
-================================================== */
-
-.letter-scroll::-webkit-scrollbar {
-
-    width: 8px;
-
-}
-
-
-.letter-scroll::-webkit-scrollbar-track {
-
-    background: transparent;
-
-}
-
-
-.letter-scroll::-webkit-scrollbar-thumb {
-
-    background:
-        rgba(154, 87, 35, 0.35);
-
-    border-radius: 20px;
-
-}
-
-
-.letter-scroll::-webkit-scrollbar-thumb:hover {
-
-    background:
-        rgba(154, 87, 35, 0.55);
-
-}
-
-
-/* ==================================================
-   DECORATION
-================================================== */
-
-.letter-decoration {
-
-    text-align: center;
-
+.question-stage h2 {
     font-family: "Patrick Hand", cursive;
 
-    font-size: 23px;
+    color: #583d32;
 
-    color:
-        rgba(154, 87, 35, 0.55);
-
-    margin-bottom: 15px;
-
-}
-
-
-/* ==================================================
-   DATE
-================================================== */
-
-.letter-date {
-
-    text-align: center;
-
-    font-family: "Patrick Hand", cursive;
-
-    font-size: 20px;
-
-    color: var(--brown);
-
-    margin-bottom: 12px;
-
-}
-
-
-/* ==================================================
-   LETTER TITLE
-================================================== */
-
-.letter-content h2 {
-
-    text-align: center;
-
-    font-family: "Patrick Hand", cursive;
-
-    font-size:
-        clamp(46px, 6vw, 68px);
-
-    font-weight: 400;
-
-    color: var(--brown);
+    font-size: clamp(40px, 7vw, 75px);
 
     line-height: 1;
 
-    margin-bottom: 50px;
+    margin-top: 5px;
 
+    margin-bottom: 8px;
 }
 
 
-.letter-content h2::after {
+/* ========================================================= */
+/* BOUQUET                                                    */
+/* ========================================================= */
 
-    content: "♡";
+.bouquet {
+    font-size: clamp(100px, 15vw, 170px);
 
-    display: block;
+    line-height: 1;
 
-    font-size: 20px;
+    margin: 5px 0 20px;
 
-    margin-top: 15px;
+    animation: bouquetFloat 3s ease-in-out infinite;
+}
 
-    color:
-        rgba(154, 87, 35, 0.55);
+@keyframes bouquetFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
 
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
 }
 
 
-/* ==================================================
-   LETTER TEXT
-================================================== */
+/* ========================================================= */
+/* YES / NO AREA                                              */
+/* ========================================================= */
 
-.letter-text {
+.proposal-area {
+    position: relative;
 
-    width: min(720px, 100%);
+    width: min(600px, 90vw);
 
-    margin:
-        0 auto;
+    min-height: 150px;
 
-    font-family: "Patrick Hand", cursive;
+    display: flex;
 
-    font-size:
-        clamp(20px, 2vw, 25px);
+    flex-direction: column;
 
-    line-height: 1.7;
+    align-items: center;
 
-    color: var(--text);
-
+    justify-content: flex-start;
 }
 
-
-.letter-text p {
-
-    margin-bottom: 28px;
-
-}
-
-
-/* ==================================================
-   SPECIAL EMPHASIS
-================================================== */
-
-.letter-text p:nth-child(5),
-.letter-text p:nth-child(14),
-.letter-text p:nth-child(20),
-.letter-text p:nth-child(27),
-.letter-text p:nth-child(42),
-.letter-text p:nth-child(50),
-.letter-text p:nth-child(59) {
-
-    color: var(--brown);
-
-}
-
-
-/* ==================================================
-   SIGNATURE
-================================================== */
-
-.letter-signature {
-
-    text-align: center;
-
-    font-family: "Patrick Hand", cursive;
-
-    font-size: 30px;
-
-    color: var(--brown);
-
-    margin-top: 20px;
-
-}
-
-
-/* ==================================================
-   CONTINUE
-================================================== */
-
-.continue-button {
-
-    display: block;
-
-    margin:
-        40px auto 55px;
-
+.proposal-button {
     border: none;
-
-    cursor: pointer;
-
-    padding:
-        14px 32px;
 
     border-radius: 999px;
 
-    color: white;
-
-    background: var(--brown);
-
     font-family: "DM Sans", sans-serif;
 
-    font-size: 13px;
+    font-size: 15px;
 
-    font-weight: 600;
+    font-weight: 700;
 
     letter-spacing: 1px;
 
-    box-shadow:
-        0 7px 18px
-        rgba(100, 55, 25, 0.22);
+    cursor: pointer;
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        left 0.3s ease,
+        top 0.3s ease;
 }
 
+.proposal-yes {
+    position: relative;
 
-.continue-button:hover {
+    z-index: 20;
 
-    transform:
-        translateY(-3px);
+    background: #b86d67;
+
+    color: white;
+
+    padding: 15px 45px;
+
+    font-size: 16px;
 
     box-shadow:
-        0 11px 25px
-        rgba(100, 55, 25, 0.28);
+        0 8px 22px rgba(184,109,103,0.3);
 
+    transform-origin: center;
+}
+
+.proposal-yes:hover {
+    box-shadow:
+        0 12px 28px rgba(184,109,103,0.4);
+}
+
+.proposal-no {
+    position: absolute;
+
+    top: 72px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #fff;
+
+    color: #765747;
+
+    border: 1px solid rgba(121,92,75,0.2);
+
+    padding: 12px 32px;
+
+    z-index: 30;
+}
+
+.proposal-no:hover {
+    background: #fff8f0;
+}
+
+.no-message {
+    height: 25px;
+
+    margin-top: 8px;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 19px;
+
+    color: #a16d63;
 }
 
 
-/* ==================================================
-   MOBILE
-================================================== */
+/* ========================================================= */
+/* SECTION 5 — FINAL                                          */
+/* ========================================================= */
+
+.final-content {
+    width: min(90%, 700px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    animation: finalAppear 1s ease;
+}
+
+@keyframes finalAppear {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.final-title {
+    font-family: "Patrick Hand", cursive;
+
+    font-size: clamp(45px, 8vw, 80px);
+
+    line-height: 1;
+
+    color: #583d32;
+}
+
+.final-title span {
+    color: #b86d67;
+}
+
+.final-heart {
+    font-size: 38px;
+
+    color: #b86d67;
+
+    margin: 8px 0;
+}
+
+.final-flowers {
+    font-size: clamp(110px, 18vw, 180px);
+
+    line-height: 1;
+
+    margin: 5px 0 20px;
+
+    animation: finalFlowers 3s ease-in-out infinite;
+}
+
+@keyframes finalFlowers {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.final-message {
+    font-family: "Patrick Hand", cursive;
+
+    font-size: clamp(25px, 4vw, 38px);
+
+    color: #765747;
+
+    margin-bottom: 40px;
+}
+
+.final-love {
+    font-family: "Patrick Hand", cursive;
+
+    font-size: clamp(45px, 8vw, 75px);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #9f5d59;
+}
+
+.final-love span {
+    color: #b86d67;
+
+    display: inline-block;
+
+    animation: heartBeat 1.2s infinite;
+}
+
+@keyframes heartBeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+
+/* ========================================================= */
+/* MOBILE                                                     */
+/* ========================================================= */
 
 @media (max-width: 600px) {
 
-    .section {
-
-        padding: 10px 7px;
-
+    .letter-paper {
+        width: 94vw;
+        height: 94vh;
     }
-
-
-    .paper {
-
-        width: 96vw;
-
-        min-height: 620px;
-
-        max-height: 96vh;
-
-    }
-
-
-    h1 {
-
-        font-size: 52px;
-
-    }
-
-
-    .question {
-
-        font-size: 22px;
-
-    }
-
-
-    .buttons {
-
-        gap: 35px;
-
-    }
-
-
-    .gif-container {
-
-        width: 190px;
-
-        height: 160px;
-
-    }
-
-
-    .second-gif-container {
-
-        width: 200px;
-
-        height: 165px;
-
-    }
-
-
-    /* ENVELOPE */
-
-    .envelope-wrapper {
-
-        width: 300px;
-
-        height: 205px;
-
-    }
-
-
-    .envelope {
-
-        width: 280px;
-
-        height: 180px;
-
-    }
-
-
-    .envelope-front::before {
-
-        border-left-width: 140px;
-
-        border-top-width: 90px;
-
-        border-bottom-width: 90px;
-
-    }
-
-
-    .envelope-front::after {
-
-        border-right-width: 140px;
-
-        border-top-width: 90px;
-
-        border-bottom-width: 90px;
-
-    }
-
-
-    .envelope-flap {
-
-        border-left-width: 140px;
-
-        border-right-width: 140px;
-
-        border-top-width: 95px;
-
-    }
-
-
-    .envelope-letter {
-
-        left: 25px;
-
-        right: 25px;
-
-        height: 135px;
-
-    }
-
-
-    .heart-button {
-
-        width: 60px;
-
-        height: 60px;
-
-    }
-
-
-    .heart-button span {
-
-        font-size: 27px;
-
-    }
-
-
-    .envelope-instruction {
-
-        font-size: 21px;
-
-    }
-
-
-    /* LETTER */
 
     .letter-scroll {
-
         padding:
-            40px 23px 55px;
-
+            45px
+            24px
+            55px;
     }
-
-
-    .letter-content h2 {
-
-        font-size: 48px;
-
-        margin-bottom: 35px;
-
-    }
-
-
-    .letter-text {
-
-        font-size: 20px;
-
-        line-height: 1.65;
-
-    }
-
 
     .letter-text p {
+        font-size: 15px;
 
-        margin-bottom: 25px;
+        line-height: 1.8;
 
+        margin-bottom: 20px;
     }
 
-
-    .continue-button {
-
-        margin-bottom: 35px;
-
+    .envelope {
+        width: 78vw;
     }
 
+    .heart-button {
+        width: 62px;
+        height: 62px;
+
+        font-size: 34px;
+    }
+
+    .proposal-intro-title {
+        font-size: 43px;
+    }
+
+    .shoot-area {
+        width: 95vw;
+
+        height: 370px;
+    }
+
+    .proposal-envelope {
+        width: 68vw;
+
+        top: 42%;
+    }
+
+    .bow {
+        top: calc(42% + 25vw);
+    }
+
+    .arrow {
+        left: 2%;
+
+        width: 145px;
+
+        transform: rotate(-8deg) scale(0.85);
+    }
+
+    .drag-text {
+        bottom: 8px;
+
+        font-size: 17px;
+    }
+
+    .question-stage h2 {
+        font-size: 48px;
+
+        padding: 0 20px;
+    }
+
+    .bouquet {
+        font-size: 115px;
+
+        margin-bottom: 12px;
+    }
+
+    .proposal-area {
+        min-height: 145px;
+    }
+
+    .final-message {
+        padding: 0 20px;
+    }
 }
